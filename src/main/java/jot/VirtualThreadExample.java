@@ -24,9 +24,9 @@ public class VirtualThreadExample {
 			System.out.println(Thread.currentThread().toString());
 		};
 
-		Thread virtuelThread = Thread.ofVirtual().start(run);
+		Thread virtualThread = Thread.ofVirtual().start(run);
 
-		virtuelThread.join();
+		virtualThread.join();
 
 		System.out.println("----------------");
 
@@ -35,9 +35,6 @@ public class VirtualThreadExample {
 		platformThread.join();
 
 		System.out.println("----------------");
-
-		Object o = new Object();
-
 	}
 
 	public static void startAlotOfVirtualThreads() throws IOException {
@@ -66,6 +63,7 @@ public class VirtualThreadExample {
 			}
 		});
 		
+		// this code is reached when all virtuel threads are finished
 		Instant end = Instant.now();
 		
 		System.out.println(Duration.between(begin, end).toMillis() + "ms");			
